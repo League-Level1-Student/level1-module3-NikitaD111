@@ -3,7 +3,6 @@
  *    Level 1
  */
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -25,25 +24,27 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
 public class Jukebox implements Runnable, ActionListener {
- Song song = new Song("YEET.wav");
- JButton button = new JButton();
- JButton button1 = new JButton();
+	Song song = new Song("YEET.wav");
+	JButton button = new JButton();
+	JButton button1 = new JButton();
+
 	public static void main(String[] args) {
-		
+
 		SwingUtilities.invokeLater(new Jukebox());
 	}
 
-           public void run() {
-        	   JFrame frame = new JFrame();
-        	   JPanel panel = new JPanel();
-        	   JButton button = new JButton();
-        	   JButton button1 = new JButton();
-        	   frame.add(panel);
-        	   panel.add(button);
-        	   frame.setVisible(true);
-        	   frame.setSize(100, 100);
-        	   button.setText("YEET");
-        	   button.addActionListener(this);
+	public void run() {
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JButton button = new JButton();
+		JButton button1 = new JButton();
+		frame.add(panel);
+		panel.add(button);
+		frame.setVisible(true);
+		frame.setSize(100, 100);
+		button.setText("YEET");
+		button.addActionListener(this);
+		button1.addActionListener(this);
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
@@ -51,14 +52,14 @@ public class Jukebox implements Runnable, ActionListener {
 		// 5. Play the Song
 
 		/*
-		 * 6. Create a user interface for your Jukebox so that the user can to
-		 * choose which song to play. You can use can use a different button for
-		 * each song, or a picture of the album cover. When the button or album
-		 * cover is clicked, stop the currently playing song, and play the one
-		 * that was selected.
+		 * 6. Create a user interface for your Jukebox so that the user can to choose
+		 * which song to play. You can use can use a different button for each song, or
+		 * a picture of the album cover. When the button or album cover is clicked, stop
+		 * the currently playing song, and play the one that was selected.
 		 */
 
-          }
+	}
+
 	/* Use this method to add album covers to your Panel. */
 	private JLabel loadImage(String fileName) {
 		URL imageURL = getClass().getResource(fileName);
@@ -68,10 +69,14 @@ public class Jukebox implements Runnable, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		 JButton buttonpressed =(JButton)e.getSource();
-		 if(button == buttonpressed) {
-		song.play();
-		 }
+		JButton buttonpressed = (JButton) e.getSource();
+		JButton buttoonpressed = (JButton) e.getSource();
+		if (button == buttonpressed) {
+			song.play();
+		}
+		if (button1 == buttoonpressed) {
+			song.stop();
+		}
 	}
 
 }
@@ -84,8 +89,7 @@ class Song {
 	private InputStream songStream;
 
 	/**
-	 * Songs can be constructed from files on your computer or Internet
-	 * addresses.
+	 * Songs can be constructed from files on your computer or Internet addresses.
 	 * 
 	 * Examples: <code> 
 	 * 		new Song("everywhere.mp3"); 	//from default package 
@@ -160,4 +164,3 @@ class Song {
 		}
 	}
 }
-
