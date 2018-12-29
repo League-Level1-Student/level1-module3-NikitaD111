@@ -76,9 +76,12 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		mediaPalace.speak("Cows");
-		System.out.println("x=" + e.getX());
-		System.out.println("y=" + e.getY());
+		//X-197 Y-535
+		//X-188 Y-861
+		//X-346 Y-563
+if(e.getX()>190 && e.getX()<215 && e.getY()>525 && e.getY()<545) {
+	mediaPalace.speak("Wowus Flowus");
+}
 	}
 
 	@Override
