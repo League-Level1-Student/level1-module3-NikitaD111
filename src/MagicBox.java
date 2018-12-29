@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -51,6 +52,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	private void createUI() {
 		JFrame frame = new JFrame("The Magic Box contains many secrets...");
+		JFrame frame1 = new JFrame();
 		frame.add(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
 		frame.pack();
@@ -78,11 +80,25 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		// TODO Auto-generated method stub
 		//X-197 Y-535
 		//X-188 Y-861
-		//X-346 Y-563
+		//X-346 Y-653
+		System.out.println(e.getX());
+		System.out.println(e.getY());
 if(e.getX()>190 && e.getX()<215 && e.getY()>525 && e.getY()<545) {
-	mediaPalace.speak("Wowus Flowus");
+	mediaPalace.speak("Cow");
 }
+	else if(e.getX()>180 && e.getX()<200 && e.getY()>850 && getY()<870) {
+		mediaPalace.playMusicOnComputer("src/moo.wav");
 	}
+	if(e.getX()>340 && e.getX()<355 && e.getY()>650 && e.getY()<665) {
+		try {
+			mediaPalace.loadImageFromTheInternet("https://assets.change.org/photos/0/gi/vi/UAGiVICSCIFfeRL-800x450-noPad.jpg?1542497807");
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+}
+	
 
 	@Override
 	public void mousePressed(MouseEvent e) {
